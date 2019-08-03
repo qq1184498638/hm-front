@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            padding: 10px;
+            border: 10px solid red;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        // clientLeft 相当于 border-left, clientTop 相当于border-top
+        console.log(box.clientLeft);
+        console.log(box.clientTop);
+        // offsetWidth , offsetHeight 包括边框, 而clientWidth, clientHeight 不包括边框
+        console.log(box.clientWidth);
+        console.log(box.clientHeight);
+    </script>
+</body>
+</html>
