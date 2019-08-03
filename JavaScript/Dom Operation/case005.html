@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>innerText 和 innerHTML 的区别</title>
+</head>
+<body>
+    <div id="box">
+        我是个div
+        <span>我是个span</span>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+
+        console.dir(box);
+
+        console.log(box.innerText);
+        console.log(box.innerHTML);
+
+        box.innerText = "hello document";
+
+    //    innerText 和 textContent 的区别是 每个浏览器的兼容行为
+        console.log(box.textContent);
+    </script>
+</body>
+</html>

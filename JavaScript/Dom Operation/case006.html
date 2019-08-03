@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document operation form attribute</title>
+</head>
+<body>
+    <input type="button" value="按钮" >
+    <input type="button" value = "文本框禁用后点击赋值">
+    <br>
+    <input type="text">
+    <script>
+        var inputs = document.getElementsByTagName("input");
+        inputs[0].onclick = function() {
+            console.log(inputs[2].disabled);
+            inputs[2].disabled = true;
+        };
+
+        inputs[1].onclick = function() {
+            inputs[2].value = "disable use input form";
+        };
+    </script>
+</body>
+</html>

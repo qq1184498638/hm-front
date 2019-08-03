@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="设置" id="btn">
+    <select id="items">
+        <option value="1">北京</option>
+        <option value="2">上海</option>
+        <option value="3">杭州</option>
+        <option value="4">武汉</option>
+        <option value="5">延安</option>
+    </select>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.addEventListener('click', function () {
+            var options = document.getElementsByTagName("option");
+            var index = parseInt(Math.random() * options.length);
+            options[index].selected = true;
+        })
+    </script>
+</body>
+</html>

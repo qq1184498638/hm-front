@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 30px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #f40;
+            font: normal bold 18px/30px "Microsoft YaHei UI";
+            text-align: center;
+        }
+
+        input {
+            margin: 10px;
+            width: 80px;
+            height: 30px;
+        }
+
+        .hide {
+            display: none;
+        }   
+    </style>
+</head>
+<body>
+    <input type="button" value="del" id="btn"/>
+    <div class="hide">delete file successful</div>
+    <script>
+        var btn = document.getElementById('btn');
+        var cls = document.getElementsByClassName('hide');
+        var el = cls[0];
+        btn.addEventListener('click', function () {
+            el.className = '';
+            setTimeout(function () {
+                el.className = 'hide';
+            }, 3000)
+        });
+
+    </script>
+</body>
+</html>

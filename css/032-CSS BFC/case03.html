@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-解决外边距合并的问题</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 700px;
+            border: 1px solid #000;
+        }
+
+        .son1, .son2 {
+            width: 100px;
+            height: 100px;
+            background-color: #ff4;
+        }
+
+        .over {
+            overflow: hidden;
+        }
+
+        .son1 {
+            margin-bottom: 100px;
+        }
+
+        .son2 {
+            margin-top: 50px;
+            background-color: #f40;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <!--盒子垂直方向的距离由margin决定。属于同一个BFC的两个相邻盒子的margin会发生重叠-->
+        <div class="over">
+            <div class="son1"></div>
+        </div>
+        <div class="son2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="button" id="btn" value="设置文本框的值">
+    <script>
+        var inputs = document.getElementsByTagName("input");
+        for(var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            if(input.type == 'text') {
+                input.value = i;
+            }
+        }
+
+        // 把文本框内的值做拼接 例如"1|2|3";
+        var btn = document.querySelector("#btn");
+        btn.addEventListener("click", function() {
+            var arr = [];
+            for(var i = 0; i< inputs.length; i++) {
+                var input = inputs[i];
+                if(input.type == 'text') {
+                    arr.push(i);
+                }
+            }
+            console.log(arr.join('|'));
+        })
+    </script>
+</body>
+</html>

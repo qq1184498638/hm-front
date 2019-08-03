@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+        #menu {
+            width: 800px;
+            margin: 30px auto;
+        }
+
+        #menu ul li {
+            float: left;
+            margin: 0 10px ;
+            background-color: #ffa;
+        }
+
+        #menu ul li a {
+            text-decoration: none;
+            display: inline-block;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #menu ul .current {
+            background-color: #fa0;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li class="current">
+                <a href="javascript:void(0);">首页</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">博客</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">播客</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">相册</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">关羽</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">帮助</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var lis = document.querySelectorAll('#menu li');
+        console.log(lis);
+        for(var i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click', function () {
+                cancel();
+                this.className = 'current';
+            })
+        }
+
+        function cancel() {
+            lis.forEach(function(li) {
+                li.className = '';
+            })
+        }
+
+    </script>
+</body>
+</html>

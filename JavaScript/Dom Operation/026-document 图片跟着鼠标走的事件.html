@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 10000px;
+        }
+
+        #ts {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/tianshi.gif" alt="" id="ts">
+    <script>
+        var ts = document.getElementById('ts');
+        document.addEventListener('mousemove', function (e) {
+            ts.style.left = e.pageX - 5 + "px";
+            ts.style.top = e.pageY - 5 + "px";
+        })
+    </script>
+</body>
+</html>

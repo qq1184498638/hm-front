@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*        var fn = function () {
+                    console.log("123");
+                };
+                fn();*/
+        /*        (function () {
+                    console.log("123");
+                })
+                ();*/
+        /*        var fn = function() {
+                    console.log("123");
+                };
+
+                console.log(typeof fn);
+
+                function test(fn) {
+                    fn();
+                };
+
+                test(fn);*/
+
+        /*        function test(a) {
+                    var b = 5;
+                    return function() {
+                        console.log(a + b);
+                    };
+                }
+
+                var fn = test(2);
+
+
+                console.log(fn());*/
+       /* // 由于变量和函数的名称一样,预解析 函数优先
+        console.log(a);
+        function a() {
+            console.log('aaa');
+        }
+
+        var a = 1;
+
+        console.log(a);*/
+
+        f1();
+        console.log(b);
+        console.log(c);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9;
+
+            /*            相当于一下代码:
+                        var a = 9;
+                        b = 9;
+                        c = 9;*/
+
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

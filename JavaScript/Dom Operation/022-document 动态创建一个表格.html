@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #score {
+            width: 800px;
+            margin: 20px auto;
+            border: 1px solid #000;
+            border-collapse:collapse;
+        }
+
+        #score tr td, #score tr th{
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table id="score" align="center" cellpadding="0" cellspacing="0">
+
+    </table>
+    <script>
+        var score = document.getElementById("score");
+        // 模拟数据
+        var datas = [
+            {name: 'zs', subject: '语文', score: 90},
+            {name: 'ls', subject: '数学', score: 80},
+            {name: 'ww', subject: '英语', score: 99},
+            {name: 'zl', subject: '英语', score: 100},
+            {name: 'xs', subject: '英语', score: 60},
+            {name: 'dc', subject: '英语', score: 70}
+        ];
+
+        // 表头数据
+        var headDatas = ['姓名', '科目', '成绩', '操作'];
+
+        var thead = document.createElement("thead");
+        score.appendChild(thead);
+
+        var tr = document.createElement("tr");
+        thead.appendChild(tr);
+        tr.style.backgroundColor = "lightgray";
+
+        headDatas.forEach(function (data) {
+            var th = document.createElement('th');
+            tr.appendChild(th);
+            th.innerText = data;
+        })
+
+        var tbody = document.createElement("tbody");
+        score.appendChild(tbody);
+        datas.forEach(function (data) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (var key in data) {
+                var td = document.createElement("td");
+                tr.appendChild(td);
+                td.innerText = data[key];
+
+            }
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML = "<a href = 'javascript:void(0)'> 删除</a>";
+            td.addEventListener('click', function() {
+                var tr = this.parentNode;
+                console.log(tr);
+                tbody.removeChild(tr);
+            })
+        })
+
+
+    </script>
+</body>
+</html>

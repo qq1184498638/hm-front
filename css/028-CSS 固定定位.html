@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top {
+            width: 100%;
+            height: 44px;
+            background: #fff url("image/top.png") center no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .host_ad_l, .host_ad_r {
+            position: fixed;
+            top: 100px;
+        }
+
+        .host_ad_l {
+            left: 0;
+        }
+
+        .host_ad_r {
+            right: 0;
+        }
+
+        .main {
+            height: 1760px;
+            width: 100%;
+            background: #fff url("image/box.png") center no-repeat;
+            margin: 44px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="host_ad_l">
+        <img src="image/ad-l.png" alt="host_ad_l" />
+    </div>
+    <div class="host_ad_r">
+        <img src="image/ad-r.png" alt="host_ad_r">
+    </div>
+    <div class="main"></div>
+</body>
+</html>

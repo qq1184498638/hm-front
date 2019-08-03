@@ -1,0 +1,95 @@
+/* 导航栏的start */
+header {
+    height: 100px;
+    background-color: #f3f5f7;
+    overflow: hidden;
+}
+
+nav {
+    width: 1366px;
+    height: 42px;
+    /*background-color: #666;*/
+    margin: 29px auto;
+}
+
+.logo {
+    float: left;
+    width: 195px;
+    height: 42px;
+    background: #f3f5f7 url("../image/logo.png") no-repeat;
+    background-size: 195px 42px;
+    margin-right: 30px;
+}
+
+.navbar li a {
+    float: left;
+    padding: 0px 22px;
+    font: normal bold 18px/42px "Microsoft YaHei UI";
+}
+
+.navbar li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    float: left;
+    width: 410px;
+    padding-left: 145px;
+}
+
+.search input[type] {
+    float: left;
+    box-sizing: border-box;
+    width: 360px;
+    height: 38px;
+    padding-left: 18px;
+    font: normal none 14px/38px "Microsoft YaHei UI";
+    border: 1px solid #00a4ff;
+}
+
+.search .search_btn {
+    float: left;
+    width: 50px;
+    height: 38px;
+    background: #00a4ff url("../image/fa-search.png") no-repeat center;
+}
+
+.personal {
+    float: right;
+    overflow: hidden;
+}
+
+.personal li {
+    /*box-sizing: border-box;*/
+    float: left;
+    padding: 0 5px;
+}
+
+.personal li a {
+    float: left;
+    height: 42px;
+    font-size: 14px;
+    line-height: 42px;
+    color: #666;
+}
+
+.personal li:first-child a {
+    padding-right: 30px;
+    background: #f3f5f7 url("../image/提醒.png") center center no-repeat;
+    background-position: 70px;
+}
+
+.personal li:first-child .remind {
+    background: url("../image/提醒.png") 70px center no-repeat,
+    #f3f5f7 url("../image/椭圆-6.png") top right no-repeat;
+}
+
+.personal li:last-child img {
+    float: left;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    margin: 3px 20px 2px;
+}
+
+/* 导航栏end */

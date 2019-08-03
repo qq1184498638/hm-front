@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="start" id = "btn1"/>
+    <input type="button" value="cancel" id = "btn2"/>
+    <script>
+        var start = document.getElementById('btn1');
+        var cancel = document.getElementById('btn2');
+        var timeId;
+        start.addEventListener('click', function() {
+            // setTimeout 定时后只执行一次
+            timeId = setTimeout(function () {
+                console.log("learning data structure...")
+            }, 3000);
+        });
+
+        cancel.addEventListener('click', function() {
+            // clearTimeout 清除定时
+            clearTimeout(timeId);
+        })
+    </script>
+</body>
+</html>

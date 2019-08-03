@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+
+        h2 {
+            color: #333;
+            background-color: transparent;
+        }
+
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #image_gallery a {
+            display: inline-block;
+            margin: 20px 20px 20px 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>美女画廊</h2>
+    <div id="image_gallery">
+        <a href="../images/1.jpg" title="美女A">
+            <img src="../images/1-small.jpg" width="100px" alt="美女A"/>
+        </a>
+        <a href="../images/2.jpg" title="美女B">
+            <img src="../images/2-small.jpg" width="100px" alt="美女B"/>
+        </a>
+        <a href="../images/3.jpg" title="美女C">
+            <img src="../images/3-small.jpg" width="100px" alt="美女C"/>
+        </a>
+        <a href="../images/4.jpg" title="美女D">
+            <img src="../images/4-small.jpg" width="100px" alt="美女D"/>
+        </a>
+    </div>
+
+    <img src="../images/placeholder.png" id="image" width="450px" alt="">
+
+    <p id="des">选择一个图片</p>
+    <script>
+        var images = document.getElementById("image_gallery");
+        var nodes = images.querySelectorAll("a");
+
+
+        var img = document.getElementById("image");
+        var str = document.querySelector("p");
+
+        console.dir(nodes);
+
+        for (var i = 0; i < nodes.length; i++) {
+            var node = nodes[i];
+            node.onclick = function () {
+/*              1. 函数在定义的时候this是不确定的，只有在调用的时候才可以确定
+                2. 一般函数直接执行，内部this指向全局window
+                3. 函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象
+                4. 构造函数中的this其实是一个隐式对象，类似一个初始化的模型，所有方法和属性都挂载到了这个隐式对象身上，后续通过new关键字来调用，从而实现实例化*/
+                img.src = this.href;
+                str.innerText = this.title;
+                return false;
+            };
+        }
+
+    </script>
+</body>
+</html>

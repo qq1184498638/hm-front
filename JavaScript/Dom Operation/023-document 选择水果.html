@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select {
+            width: 200px;
+            height: 200px;
+            background-color: #33cccc;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <select id="all" multiple="multiple">
+        <option>苹果</option>
+        <option>橘子</option>
+        <option>梨</option>
+        <option>西瓜</option>
+        <option>水蜜桃</option>
+    </select>
+
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+    <select id="select" multiple="multiple">
+
+    </select>
+
+    <script>
+        var all = document.getElementById('all');
+        var select = document.getElementById('select');
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var btn3 = document.getElementById('btn3');
+
+        console.log(all.children);
+        //全部移动
+        btn1.addEventListener('click', function () {
+            var len= all.children.length;
+            for (var i = 0; i < len; i++) {
+                // all.removeChild(all.children[0]);
+                select.appendChild(all.children[0]);
+            }
+        });
+        btn2.addEventListener('click', function () {
+            var len= select.children.length;
+            for (var i = 0; i < len; i++) {
+                // all.removeChild(all.children[0]);
+                all.appendChild(select.children[0]);
+            }
+        });
+
+        btn3.addEventListener('click', function() {
+            // 找到所有选中的option
+            var array = []; // 存储选中的option
+            for (var i = 0; i < all.children.length; i++) {
+                var option = all.children[i];
+                if (option.selected) {
+                    array.push(option);
+                    // 去掉当前option的选中效果
+                    option.selected = false;
+                }
+            }
+            // 把数组中的option移动到第二个select中
+            for (var i = 0; i < array.length; i++) {
+                var option = array[i];
+                select.appendChild(option);
+            }
+
+        })
+
+
+
+
+
+
+    </script>
+</body>
+</html>

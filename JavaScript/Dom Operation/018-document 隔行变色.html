@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="mv">
+        <li>西施</li>
+        <li>貂蝉</li>
+        <li>妲己</li>
+        <li>杨玉环</li>
+        <li>王昭君</li>
+    </ul>
+
+    <script>
+        out:
+        for(var i = 0; i < 10; i++) {
+            for(var j = 0; j < 10; j++) {
+                console.log("break");
+                break out;
+            }
+        }
+        var mv = document.getElementsByClassName("mv");
+
+        console.log(mv[0].firstElementChild);
+        console.log(mv[0].lastElementChild);
+
+        if(mv[0].hasChildNodes()) {
+            var childs = mv[0].children;
+            for (var key in childs) {
+                if(key % 2 == 0) {
+                    childs[key].style.backgroundColor = "yellow";
+                }else {
+                    childs[key].style.backgroundColor = "#f40";
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

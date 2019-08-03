@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .inactive {
+            display: none;
+        }
+
+        .active {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮"/>
+    <br>
+    <img src="../images/a.jpg" alt="">
+    <img src="../images/b.jpg" class="inactive" alt="">
+    <script>
+        var count = 0;
+        var btn = document.querySelector("input");
+        btn.addEventListener("click", function () {
+            var imgs = document.getElementsByTagName("img");
+
+            for (var key in imgs) {
+                if (imgs[key].className === 'inactive') {
+                    imgs[key].className = 'active';
+                } else {
+                    imgs[key].className = 'inactive';
+                }
+            }
+            ;
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var str1 = "123";
+        var str2 = "abc";
+        var isRight = true;
+
+        // Number() 来转换数字类型
+        console.log(Number(str1));
+        // 如果变量是字符串的时候且不是数字是不会转换的 -> NAN
+        console.log(Number(str2));
+        console.log(Number(isRight));
+
+        //parseInt() 如果是布尔类型也无法转换 -> NAN
+        console.log("----------parseInt method-----------")
+        console.log(parseInt(str1));
+        console.log(parseInt(str2));
+        console.log(parseInt(isRight));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+body {
+    /*保证footer是相对于container位置绝对定位*/
+    position:relative;
+    width:100%;
+    min-height:100%;
+    /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/
+    padding-bottom: 272px;
+    box-sizing: border-box;
+}
+
+footer {
+    width: 100%;
+    height: 272px;
+    background-color: #f3f5f7;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer_in .logo {
+    float: left;
+    margin-top: 35px;
+    margin-left: 30px;
+    width: 440px;
+}
+
+.footer_in .logo p {
+    margin-top: 35px;
+    font-size: 12px;
+}
+
+.footer_in .logo div {
+    margin-top: 20px;
+    width: 120px;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    font: normal bold 16px/38px "Microsoft YaHei UI";
+    text-align: center;
+}
+
+.footer_in .logo div a {
+    color: #00a4ff;
+}
+
+.footer_in .introduction {
+    float: right;
+    margin-top: 35px;
+}
+
+.footer_in .introduction dl {
+    float: left;
+    margin-right: 152px;
+}
+
+.footer_in .introduction dl:last-child {
+    margin-right: 0px;
+}
+
+.footer_in .introduction dl dt {
+    font: normal bold 16px "Microsoft YaHei UI";
+    padding-bottom: 15px;
+}
+
+.footer_in .introduction dl dd {
+    font-size: 12px;
+    padding-bottom: 10px;
+}

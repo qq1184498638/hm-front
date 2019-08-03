@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <span>span</span>
+        <p>p</p>
+        <!-- comment -->
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        console.log(box.parentNode);
+        console.log(box.childNodes);
+        if(box.hasChildNodes()) {
+            box.childNodes.forEach(function(child) {
+                if(child.nodeType === 1) {
+                    console.log(child);
+                }
+            })
+        }
+
+        console.log(box.children);
+    </script>
+</body>
+</html>

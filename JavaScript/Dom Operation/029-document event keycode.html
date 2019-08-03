@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="age">
+    <script>
+        var age = document.getElementById("age");
+        age.addEventListener('keydown', function(e) {
+            console.log(e.keyCode);
+            if((e.keyCode < 48 || e.keyCode >57) && e.keyCode !== 8) {
+                e.preventDefault();
+            }
+        })
+    </script>
+</body>
+</html>

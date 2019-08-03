@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="按钮" id = "btn"/>
+    <div id="box">
+
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        var btn = document.getElementById('btn');
+        var datas = ["貂蝉", "西施", "公孙离"];
+        btn.addEventListener('click', function() {
+            var ul = document.createElement('ul');
+            box.appendChild(ul);
+            for (var i in datas) {
+                var li = document.createElement('li');
+                li.innerText = datas[i];
+                ul.appendChild(li);
+                li.addEventListener('mouseover', highlight)
+                li.addEventListener('mouseout', cancel)
+            }
+
+        })
+        function highlight() {
+            this.style.backgroundColor = "gray";
+        }
+        function cancel() {
+            this.style.backgroundColor = '';
+        }
+    </script>
+</body>
+
+</html>

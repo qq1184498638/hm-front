@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>区域1</div>
+    <div>区域2</div>
+    <div id="area">区域3</div>
+    <div>区域4</div>
+    <div>区域5</div>
+    <script>
+        var area = document.getElementById("area");
+        var previous = area.previousElementSibling;
+        var next = area.nextElementSibling;
+        console.log(previous);
+        console.log(next);
+    </script>
+</body>
+
+
+</html>

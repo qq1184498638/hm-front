@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #f40;
+        }
+
+
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value = "隐藏" />
+    <div class="box" >
+
+    </div>
+    <p>test</p>
+
+    <script>
+        var btn = document.getElementsByTagName("input");
+
+        var isShow = true;
+
+        btn[0].onclick = function () {
+            var box = document.querySelector(".box");
+
+            if(isShow) {
+                box.className = 'box hidden';
+
+                btn[0].value = "显示";
+
+                isShow = false;
+            }else {
+                box.className = 'box';
+
+                btn[0].value = "隐藏";
+
+                isShow = true;
+            }
+        };
+    </script>
+</body>
+</html>

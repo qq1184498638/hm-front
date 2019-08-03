@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #f40;
+            margin: 400px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        box.addEventListener('click', function(e) {
+            // 获取 box 距离页面的位置
+            // console.log(this.offsetLeft);
+            // console.log(this.offsetTop);
+            console.log(e.pageY - this.offsetTop);
+            console.log(e.pageX - this.offsetLeft);
+        })
+    </script>
+</body>
+</html>

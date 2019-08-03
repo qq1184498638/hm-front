@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #father {
+            width: 400px;
+            height: 400px;
+            background-color: #bbb;
+            /* 解决潜逃类型的外边距的问题 */
+            overflow: hidden;
+        }
+
+        #son {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div id="son"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #f40;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="move" id="btn"/>
+    <div id="box"></div>
+    <script>
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        btn.addEventListener('click', function() {
+            var timeId = setInterval(function () {
+                if(box.offsetLeft > 500) {
+                    clearImmediate(timeId);
+                    box.style.left = "500px";
+                }
+                box.style.left = box.offsetLeft + 5 + "px";
+            }, 20);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>input label other attribute</legend>
+        <form action="#">
+            输入框: <input type="text" placeholder="请输入你想要的..." autofocus="autofocus" />
+            <br /> <br/>
+            上传文件: <input type="file" multiple />
+            <br /> <br/>
+
+            <!-- autocomplete attribute used look out -->
+            <!--
+                1. autocomplete 首先要有提交按钮;
+                2. 必须要有name 属性
+            -->
+            自动填充: <input type="text" autocomplete name="username"/>
+            <br/><br/>
+            昵称: <input type="text" required accesskey="i" />
+            <br/><br/>
+            <input type="submit" />
+        </form>
+    </fieldset>
+</body>
+</html>

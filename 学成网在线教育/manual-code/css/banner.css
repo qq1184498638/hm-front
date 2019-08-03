@@ -1,0 +1,128 @@
+/* banner part start */
+.banner {
+    background-color: #1c036c;
+    height: 420px;
+    margin-bottom: 10px;
+}
+
+.banner_in {
+    height: 420px;
+    background: #1c036c url("../image/banner2.png") left center no-repeat;
+    position: relative;
+}
+
+.banner_in .left_nav_bar {
+    float: left;
+    width: 190px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.left_nav_bar li a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    line-height: 45px;
+    padding: 0 20px;
+}
+
+.left_nav_bar li a:hover {
+    background-color: rgba(0, 0, 0, .3);
+    color: #00a4ff;
+}
+
+.left_nav_bar li a span {
+    float: right;
+    font-family: Arial;
+}
+
+.circle {
+    position: absolute;
+    width: 180px;
+    height: 22px;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -110px;
+}
+
+.circle li {
+    list-style: none;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 5px 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .3);
+    cursor: pointer;
+}
+
+.circle .current {
+    width: 19px;
+    height: 12px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.right_nav_bar dl {
+    float: right;
+    width: 230px;
+    height: 300px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.right_nav_bar dt {
+    height: 48px;
+    background-color: #9bceea;
+    font: normal bold 18px/48px "Microsoft YaHei UI";
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.right_nav_bar dd {
+    width: 195px;
+    height: 60px;
+    border-bottom: 2px solid #e7e7e7;
+    margin: 0 auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.right_nav_bar dd h4 {
+    color: #4e4e4e;
+    font: normal bold 14px "Microsoft YaHei UI";
+    padding-top: 15px;
+}
+
+.right_nav_bar dd p {
+    color: #a5a5a5;
+    font-size: 12px;
+}
+
+.right_nav_bar dd:hover h4, .right_nav_bar dd:hover p{
+    color: #00a4ff;
+}
+
+.right_nav_bar dd .other {
+    display: block;
+    height: 40px;
+    border: 2px solid #00a4ff;
+    text-align: center;
+    margin: 10px auto;
+    font: normal bold 16px/40px "Microsoft YaHei UI";
+    color: #00a4ff;
+    transition: all 0.5s;
+}
+
+.right_nav_bar dd .other:hover {
+    background-color: #00a4ff;
+    color: #fff;
+}
+
+.right_nav_bar dd:last-child {
+    border: 0;
+}
+
+/* banner part end */

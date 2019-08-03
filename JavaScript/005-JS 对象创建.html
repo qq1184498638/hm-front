@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 1. 可以通过直接创建的方法
+        /*
+          var hero = {
+                    name: "radeon",
+                    age: 28,
+                    eat: function(){
+                        console.log("eat");
+                    }
+          }
+                */
+        // 2. 通过new Object()方法动态添加属性和方法
+        /*
+                var hero = new Object();
+                hero.name = "radeon";
+                hero.age = 18;
+                console.log(hero.name);
+                */
+        // 3. 通过工厂方法来
+        function hero(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        var hero1 = new hero("123", 28);
+        console.log(hero1.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

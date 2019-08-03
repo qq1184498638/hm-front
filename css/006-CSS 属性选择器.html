@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div a[title] {
+            color: #f40;
+        }
+
+        div input[type=text] {
+            color: red;
+        }
+
+        div[class^=font] {
+            color: red;
+        }
+
+        div[class$=footer] {
+            color: pink;
+        }
+
+        div[class*=news] {
+            color: green;
+        }
+    </style>
+
+</head>
+<body>
+    <!--属性选择器 -->
+    <div>
+        <a href="#" title="百度">百度</a>
+        <a href="#" title="新浪">新浪</a>
+        <a href="#">google</a>
+    </div>
+
+    <div>
+        <input type="text" value="value01"/>
+        <input type="text" value="value02"/>
+        <input type="submit"/>
+        <input type="button" value="button"/>
+        <input type="reset"/>
+    </div>
+
+    <div class="font12">属性选择器</div>
+    <div class="font12">属性选择器</div>
+    <div class="font12">属性选择器</div>
+    <div class="font12">属性选择器</div>
+    <div class="24font">属性选择器</div>
+    <div class="sub_footer">属性选择器footer</div>
+    <div class="jd_footer">属性选择器footer</div>
+    <div class="news_jd_nav">属性选择器</div>
+    <div class="news_jd_footer">属性选择器</div>
+</body>
+</html>

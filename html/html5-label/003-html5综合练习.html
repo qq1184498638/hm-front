@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <fieldset>
+        <legend> html5 综合练习</legend>
+        <form action="">
+            <label for="username">姓名:</label>
+            <input type="text" id="username" autocomplete="off" /><br/><br/>
+            手机号: <input type="tel" required /><br/><br/>
+            邮箱: <input type="email" required autocomplete="on" /><br/><br/>
+            所属学院: <input type="text" placeholder="请选择学院" list="schools" /><br/><br/>
+            <datalist id="schools" >
+                <option>java学院</option>
+                <option>php学院</option>
+                <option>python学院</option>
+            </datalist>
+            出生年月: <input type="date" /><br/><br/>
+            成绩: <input type="number" min="0" max="100" required/><br/><br/>
+            <label for="leaveDate">毕业时间: </label>
+            <input type="date" id="leaveDate" />
+            <br/><br/>
+            <input type="submit" />
+        </form>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var obj = {
+            name : "radeon",
+            sex: "woman",
+            age: 29
+        };
+        for(var key in obj) {
+            console.log(key + "------" + obj[key]);
+        }
+
+        // 可以通过delete 方法来删除对象的属性
+        delete obj.name;
+        console.log(obj.name);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

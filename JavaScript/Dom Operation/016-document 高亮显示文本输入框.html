@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="button" value="按钮">
+    <script>
+        var inputs = document.querySelectorAll("input[type='text']");
+        console.log(inputs.length);
+        for(var i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('focus', function() {
+                this.style.backgroundColor = "lightgray";
+            })
+
+            inputs[i].addEventListener('blur', function () {
+                this.style.backgroundColor = "";
+            })
+        }
+    </script>
+</body>
+</html>
