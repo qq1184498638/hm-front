@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #f40;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn-1">animation 400</button>
+    <button id="btn-2">animation 800</button>
+    <div id="box" class="box">
+
+    </div>
+
+    <script>
+        var btn_1 = document.getElementById('btn-1');
+        var btn_2 = document.getElementById('btn-2');
+        var box = document.getElementById('box');
+        // var timerId = null;
+        btn_1.addEventListener('click', function () {
+            animation(box, 400);
+        });
+        btn_2.addEventListener('click', function () {
+            animation(box, 800);
+        });
+
+        function animation(el, target) {
+            // 限制只有一个定时器(每个元素都有一个timerId)
+            if(el.timerId) {
+                clearInterval(el.timerId);
+                el.timerId = null;
+            }
+
+            el.timerId = setInterval(function () {
+                var step = 10;
+                var boxX = el.offsetLeft ;
+                if(boxX > target) {
+                    step = -Math.abs(step);
+                }
+
+                if(Math.abs(boxX - target) < Math.abs(step)) {
+                    clearInterval(el.timerId);
+                    el.style.left = target + 'px';
+                }
+                boxX += step;
+                el.style.left = boxX + 'px';
+            }, 30);
+
+        }
+    </script>
+</body>
+</html>
