@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0px;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: absolute;
+        }
+
+        .mark {
+            width: 175px;
+            height: 175px;
+            background-color: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: block;
+        }
+
+        .small {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box">
+        <div class="small">
+            <img src="../images/small.jpg" alt="" width="350"/>
+            <div class="mark"></div>
+        </div>
+        <div class="big">
+            <img src="../images/big.jpg" width="800" alt=""/>
+        </div>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var small = box.children[0];
+        var big = box.children[1];
+        var mark = small.children[1];
+        var smallImg = small.children[0];
+        var bigImg = big.children[0];
+        box.addEventListener('mouseover', function () {
+            big.style.display = 'block';
+            mark.style.display = 'block';
+        })
+
+        box.addEventListener('mouseleave', function () {
+            big.style.display = 'none';
+            mark.style.display = 'none';
+        })
+
+        box.addEventListener('mousemove', function (e) {
+            // 鼠标的位置
+            var markX = e.pageX - box.offsetLeft;
+            var markY = e.pageY - box.offsetTop;
+            // 鼠标在Mark盒子的中心
+            markX = markX - mark.offsetWidth / 2;
+            markY = markY - mark.offsetHeight / 2;
+
+            // 设置Mark盒子移动范围
+            markX < 0 ? markX = 0 : markX;
+            markY < 0 ? markY = 0 : markY;
+
+            var maxW = box.offsetWidth - mark.offsetWidth;
+            markX > maxW ? markX = maxW : markX;
+            var maxH = box.offsetHeight - mark.offsetHeight;
+            markY > maxH ? markY = maxH : markY;
+
+            mark.style.left = markX + 'px';
+            mark.style.top = markY + 'px';
+
+
+            // 大图的移动位置
+            // mask移动的距离 / mask最大能够移动的距离  = 大图片移动的距离 / 大图片最大能够移动的距离
+            var bigImgMax = bigImg.offsetWidth - big.offsetWidth;
+            var bix = markX * bigImgMax / maxW;
+            var biy = markY * bigImgMax / maxH;
+
+            bigImg.style.left = -bix + "px";
+            bigImg.style.top = -biy + 'px';
+        })
+
+    </script>
+</body>
+</html>
