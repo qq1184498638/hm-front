@@ -60,6 +60,8 @@
                 if(Math.abs(boxX - target) < Math.abs(step)) {
                     clearInterval(el.timerId);
                     el.style.left = target + 'px';
+                    console.log(el.style.left)
+                    return ;
                 }
                 boxX += step;
                 el.style.left = boxX + 'px';
