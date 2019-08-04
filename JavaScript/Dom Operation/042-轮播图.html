@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3000px;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background-color: #ff8;
+        }
+
+        #arr {
+            display: none;
+            z-index: 10000;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #000;
+            opacity: 0.4;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="all" id="box">
+        <div class="screen">
+            <ul>
+                <li><img src="../images/wf1.jpg" width="500px" height="200px" alt=""/></li>
+                <li><img src="../images/wf2.jpg" width="500px" height="200px" alt=""/></li>
+                <li><img src="../images/wf3.jpg" width="500px" height="200px" alt=""/></li>
+                <li><img src="../images/wf4.jpg" width="500px" height="200px" alt=""/></li>
+                <li><img src="../images/wf5.jpg" width="500px" height="200px" alt=""/></li>
+            </ul>
+
+            <ol>
+            </ol>
+        </div>
+        <div id="arr">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+    </div>
+    <script>
+        // 动态生成序号
+        var box = document.getElementById('box');
+        var screen = box.children[0];
+        var ol = screen.lastChild.previousSibling;
+        var ul = screen.children[0];
+        for (var idx = 0; idx < ul.children.length; idx++) {
+            var li = document.createElement('li');
+            li.innerText = idx;
+            ol.appendChild(li);
+            if (idx == 0) {
+                li.className = 'current';
+            }
+
+            // 点击序号
+            li.addEventListener('click', liClick);
+
+            // 设置自定义属性
+            li.setAttribute("index", idx);
+        }
+
+        function liClick() {
+            // 点击效果
+            for (var li in ol.children) {
+                ol.children[li].className = '';
+            }
+            this.className = 'current';
+            // 动画效果
+            // 图片的的宽度
+            var imgWidth = screen.offsetWidth;
+
+            var index = parseInt(this.getAttribute('index'));
+            animation(ul, -index * imgWidth);
+
+        }
+
+        function animation(el, target) {
+            // 限制只有一个定时器(每个元素都有一个timerId)
+            if (el.timerId) {
+                clearInterval(el.timerId);
+                el.timerId = null;
+            }
+
+            el.timerId = setInterval(function () {
+                var step = 10;
+                var boxX = el.offsetLeft;
+                if (boxX > target) {
+                    step = -Math.abs(step);
+                }
+
+                if (Math.abs(boxX - target) < Math.abs(step)) {
+                    clearInterval(el.timerId);
+                    el.style.left = target + 'px';
+                    return ;
+                }
+                boxX += step;
+                el.style.left = boxX + 'px';
+            }, 30);
+
+        }
+
+    </script>
+</body>
+</html>
