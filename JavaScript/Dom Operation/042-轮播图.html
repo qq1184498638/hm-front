@@ -72,7 +72,7 @@
             width: 40px;
             height: 40px;
             position: absolute;
-            left: 5px;
+            left: 6px;
             top: 50%;
             transform: translateY(-50%);
             background-color: #000;
@@ -88,7 +88,7 @@
         }
 
         #arr #right {
-            right: 5px;
+            right: 6px;
             left: auto;
         }
     </style>
@@ -116,11 +116,14 @@
         // 动态生成序号
         var box = document.getElementById('box');
         var screen = box.children[0];
+        // 图片的的宽度
+        var imgWidth = screen.offsetWidth;
         var ol = screen.lastChild.previousSibling;
         var ul = screen.children[0];
+        var timerId = null;
         for (var idx = 0; idx < ul.children.length; idx++) {
             var li = document.createElement('li');
-            li.innerText = idx;
+            li.innerText = idx + 1;
             ol.appendChild(li);
             if (idx == 0) {
                 li.className = 'current';
@@ -140,10 +143,8 @@
             }
             this.className = 'current';
             // 动画效果
-            // 图片的的宽度
-            var imgWidth = screen.offsetWidth;
 
-            var index = parseInt(this.getAttribute('index'));
+            index = parseInt(this.getAttribute('index'));
             animation(ul, -index * imgWidth);
 
         }
@@ -165,14 +166,70 @@
                 if (Math.abs(boxX - target) < Math.abs(step)) {
                     clearInterval(el.timerId);
                     el.style.left = target + 'px';
-                    return ;
+                    return;
                 }
                 boxX += step;
                 el.style.left = boxX + 'px';
-            }, 30);
+            }, 10);
 
         }
 
+        var arr = document.getElementById("arr");
+        // 显示箭头
+        box.addEventListener('mouseover', function () {
+            arr.style.display = 'block';
+            clearInterval(timerId);
+        });
+
+        box.addEventListener('mouseout', function () {
+            arr.style.display = 'none';
+            interval();
+        })
+
+
+        // 上一张和下一张
+        var up = arr.children[0];
+        var down = arr.children[1];
+        var index = 0;
+        down.addEventListener('click', function () {
+            if (index === ul.children.length - 1) {
+                index = 0;
+                ul.style.left = "0px";
+            }
+
+            index++;
+            if (index < ul.children.length - 1) {
+                ol.children[index].click();
+            } else {
+                animation(ul, -index * imgWidth);
+                for (var idx in ol.children) {
+                    ol.children[idx].className = '';
+                }
+                ol.children[0].className = 'current';
+            }
+
+        })
+
+        var cloneNode = ul.children[0].cloneNode(true);
+        ul.appendChild(cloneNode);
+
+
+        up.addEventListener('click', function () {
+            if(index === 0) {
+                index= ul.children.length -1;
+                ul.style.left =  - index * imgWidth + 'px';
+            }
+            index--;
+            ol.children[index].click();
+        })
+
+
+        function interval() {
+            timerId = setInterval(function() {
+                down.click();
+            }, 3000);
+        };
+        interval();
     </script>
 </body>
 </html>
