@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .content {
+            padding: 5px 18px 5px 5px;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0;
+        }
+
+        .scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+
+        .bar {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #f44;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="content" id="content">
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+            我是文字内容，我是文字内容，我是文字内容，
+
+        </div>
+        <div class="scroll" id="scroll">
+            <div class="bar" id="bar"></div>
+        </div>
+    </div>
+
+    <script>
+        // 计算滚动条的大小
+        // bar 大小 / scroll 大小 = box 大小 / content size
+        var box = document.getElementById('box');
+        var content = box.children[0];
+        var scroll = box.children[1];
+        var bar = document.getElementById('bar');
+        var barSize = box.clientHeight / content.scrollHeight * scroll.clientHeight
+        bar.style.height = barSize + 'px';
+
+        // 拖拽滚动条
+        bar.addEventListener('mousedown', function (e) {
+            // 鼠标的位置
+            var y = e.pageY - box.offsetTop - bar.offsetTop;
+            document.onmousemove = function (e) {
+                var barY = e.pageY - y - box.offsetTop;
+                // 限制滚动条的范围
+                barY = barY < 0 ? 0 : barY;
+                barY = barY > scroll.clientHeight - bar.clientHeight ? scroll.clientHeight - bar.clientHeight : barY;
+                bar.style.top = barY + 'px';
+                // 内容跟随滚动条移动
+                // content move size / content move max size = bar move size / scroll move max size;
+                var cmas = content.scrollHeight - box.clientHeight;
+                var smms = scroll.clientHeight - bar.clientHeight;
+                var cms = barY / smms * cmas;
+                content.style.top = -cms + 'px';
+            };
+
+        })
+        document.addEventListener('mouseup', function () {
+            document.onmousemove = null;
+        })
+
+
+    </script>
+</body>
+</html>
