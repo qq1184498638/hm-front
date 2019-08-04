@@ -7,15 +7,18 @@
 <body>
     <div>区域1</div>
     <div>区域2</div>
-    <div id="area">区域3</div>
+    <div id="area">区域3
+        <a href="#">title</a>
+    </div>
     <div>区域4</div>
     <div>区域5</div>
     <script>
         var area = document.getElementById("area");
+        console.dir(area.childNodes);
         var previous = area.previousElementSibling;
         var next = area.nextElementSibling;
-        console.log(previous);
-        console.log(next);
+        console.dir(previous);
+        console.dir(next);
     </script>
 </body>
 
