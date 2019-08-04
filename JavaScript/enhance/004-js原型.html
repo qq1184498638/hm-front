@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script>
+		function Student(name, age, sex) {
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+        }
+        
+		// 通过原型创建方法, 在内存中只有一份
+        Student.prototype.say = function() {
+            console.info(this.name + ":" + 'say hello');
+        };
+
+        var student = new Student('lj', 23, 'man');
+        
+        student.say();
+	</script>
+</body>
+</html>

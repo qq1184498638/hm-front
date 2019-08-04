@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function student(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+
+            this.printInfo = function() {
+                console.log(name + " : " + age + " : " + sex);
+            };
+        }
+
+        var stu = new student('lj', 28, 'man');
+        stu.printInfo();
+
+        console.log(typeof(stu));
+        if(stu instanceof student) {
+            console.log('yes');
+        }
+    </script>
+</body>
+</html>

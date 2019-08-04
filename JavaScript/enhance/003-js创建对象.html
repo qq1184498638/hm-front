@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script>
+        /* 第一种创建
+				var hero = new Object();
+				hero.name = 'lj';
+				hero.age = 23;
+				hero.sex = 'man';
+		
+				hero.say = function () {
+					console.log(this.name + " : " + 'say hello');
+				};
+		
+				hero.say();
+				*/
+        /* 第二种创建
+				var hero = {
+					name: 'lj',
+					age: 23,
+					sex: 'man',
+					say: function() {
+						console.log(this.name + ' : ' + 'say hello');
+					}
+				}
+				
+				hero.say();
+				*/
+
+        // 第三种通过工厂方法, 构造函数
+        function hero(name, age, sex) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.sex = sex;
+            
+            o.say = function() {
+                console.log(this.name + ' : ' + 'say hello');
+            };
+            return o;
+        }
+
+        var h = hero('lj', 23, 'man');
+        h.say();
+	</script>
+</body>
+</html>
