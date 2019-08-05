@@ -21,7 +21,8 @@
         var fn1 = fn.bind(o);
         fn1(); // 此时 this 改变成了o对象
 	
-	
+		// call() 与 bing() 类似, 区别在于 call会直接调用
+        fn.call(o);
 	</script>
 </body>
 </html>
