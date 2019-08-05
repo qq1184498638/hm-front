@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>$Title$</title>
+	<title>Title</title>
 </head>
 <body>
-	$END$
+	<script>
+		function Student() {
+			this.score = 100;
+        }
+        
+        function Teacher() {
+	        this.salay = 1000;
+        }
+        
+        function Person() {
+	        this.name = 'lj';
+	        this.age = 28;
+	        this.sex = 'man'
+        }
+
+        Student.prototype = new Person();
+		Student.prototype.constructor = Student;
+
+        var s1 = new Student();
+        console.dir(s1);
+        
+        // 这种方法有局限性
+        
+	</script>
 </body>
 </html>
