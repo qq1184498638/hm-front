@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script>
+		var parent = {
+		    name: 'lj',
+			age : 23,
+			sex : 'man'
+		};
+		
+		var child = {
+		    name : 'radeon'
+		};
+		
+		function extend (parent, child){
+            for (var key in parent) {
+	            if(child[key])
+	                continue;
+                child[key] = parent[key];
+            }
+		}
+
+        extend(parent, child);
+
+        console.dir(child);
+	</script>
+</body>
+</html>
