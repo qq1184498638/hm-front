@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<script>
+		function Person(name, age, sex) {
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+        }
+		function Student(name, age, sex, score) {
+            Person.call(this, name, age, sex);
+			this.score = score;
+        }
+
+        var student = new Student('lj', 28, 'man', 100);
+        console.log(student);
+	</script>
+</body>
+</html>
