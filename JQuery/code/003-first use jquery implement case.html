@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>load</title>
+	<script src="../js/jquery-3.4.1.js"></script>
+	<script >
+		$(function() {
+			$('#btn').click(function() {
+				if($(this).val() === "close"){
+                    $('body').css({'backgroundColor': 'lightgray', 'opacity': '0.2'});
+                    $(this).val('open');
+				}else{
+                    $('body').css({'backgroundColor': '#fff'});
+                    $(this).val('close');
+				}
+				    
+            })
+        });
+	</script>
+</head>
+<body>
+	<input type="button" value="close" id="btn" />
+	
+</body>
+</html>

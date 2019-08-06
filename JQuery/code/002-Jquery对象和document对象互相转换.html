@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>load</title>
+	<script src="../js/jquery-3.4.1.js"></script>
+	<script >
+		$(function() {
+			//此时 btn 是doc对象
+            var btn = document.getElementById("btn");
+			// 此时是把doc对象转换成jquery对象
+            var j_btn = $(btn);
+            j_btn.click(function() {
+                j_btn.css({'backgroundColor': 'red'});
+            })
+
+			//此时再次把jquer转换成了document对象
+            var btn2 = $(btn)[0];
+            
+            $('#btn').click(function() {
+                $(this).css({'width': '100px'});
+            })
+            
+        })
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn" />
+</body>
+</html>
